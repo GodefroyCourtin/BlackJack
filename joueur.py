@@ -1,9 +1,9 @@
-
 class Joueur:
-    def __init__(self):
+    def __init__(self, name):
 
         self.hand=[]
         self.score=0
+        self.name=""
 
     def calcul_hand(self) :
         for i in self.hand[0:]:
