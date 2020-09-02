@@ -29,13 +29,32 @@ class Croupier:
 		
 	
 if __name__ == "__main__":
+
+    #Tour1
     joueur = Joueur("beber")                  # un joueur arrive à la table
     croupier = Croupier()                     # le croupier deballe le paquet
     croupier.distribue(2,joueur) 
-    croupier.distribue(2)                      # le croupier distribue 
+    croupier.distribue(1)                      # le croupier distribue 
     print(joueur.hand)
     print(croupier.joueur.hand[0])
     joueur.calcul_hand()
-    croupier.joueur.calcul_hand()
     print(joueur.score)
+    croupier.joueur.calcul_hand()
+    print(croupier.joueur.score)
+
+    #Tour2
+    choix_carte_supp =""
+    while choix_carte_supp != "oui" and choix_carte_supp != "non":
+        choix_carte_supp = input("continuer ?:")
+        if choix_carte_supp == "oui":
+            croupier.distribue(1, joueur)
+            joueur.calcul_hand()
+            print(joueur.hand)
+            print(joueur.score)
+        elif choix_carte_supp == "non":
+            print("on compare les mains")
+    #choix_carte_supp = choix_carte_supp[0].lower()
+
+
+    #si arret
     #print(croupier.joueur.score)

@@ -6,6 +6,7 @@ class Joueur:
         self.name=""
 
     def calcul_hand(self) :
+        self.score = 0
         for i in self.hand[0:]:
             
             if i[0] == 'valet' or i[0] == 'roi' or i[0] == 'dame':
