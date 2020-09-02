@@ -3,7 +3,7 @@ class Joueur:
 
         self.hand=[]
         self.score=0
-        self.name=""
+        self.name=name
 
     def calcul_hand(self) :
         self.score = 0

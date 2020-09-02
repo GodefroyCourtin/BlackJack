@@ -30,31 +30,57 @@ class Croupier:
 	
 if __name__ == "__main__":
 
-    #Tour1
-    joueur = Joueur("beber")                  # un joueur arrive à la table
-    croupier = Croupier()                     # le croupier deballe le paquet
-    croupier.distribue(2,joueur) 
-    croupier.distribue(1)                      # le croupier distribue 
-    print(joueur.hand)
-    print(croupier.joueur.hand[0])
-    joueur.calcul_hand()
-    print(joueur.score)
-    croupier.joueur.calcul_hand()
-    print(croupier.joueur.score)
+    choix_recommencer = "oui"
+    while choix_recommencer == "oui":
+        #Tour1
+        joueur = Joueur("beber")                  
+        croupier = Croupier() 
+        print("Début de la partie")    
+        print("--------------------------")           
+        croupier.distribue(2,joueur) 
+        croupier.distribue(1)                     
+        print("la main du joueur est :", joueur.hand)
+        print("--------------------------")
+        print("la carte du croupier est :", croupier.joueur.hand[0])
+        joueur.calcul_hand()
+        print("--------------------------")
+        print("le score du joueur est :", joueur.score)
+        croupier.joueur.calcul_hand()
+        print("--------------------------")
+        print("le score du croupier est :", croupier.joueur.score)
 
-    #Tour2
-    choix_carte_supp =""
-    while choix_carte_supp != "oui" and choix_carte_supp != "non":
-        choix_carte_supp = input("continuer ?:")
-        if choix_carte_supp == "oui":
-            croupier.distribue(1, joueur)
-            joueur.calcul_hand()
-            print(joueur.hand)
-            print(joueur.score)
-        elif choix_carte_supp == "non":
-            print("on compare les mains")
-    #choix_carte_supp = choix_carte_supp[0].lower()
+        print("--------------------------------")
+
+        #Tour2
+    
+        choix_carte_supp =""
+        while choix_carte_supp != "oui" and choix_carte_supp != "non":
+            choix_carte_supp = input("le joueur veut continuer ?:")
+            if choix_carte_supp == "oui":
+                croupier.distribue(1, joueur)
+                joueur.calcul_hand()
+                print("la nouvelle main du joueur est", joueur.hand)
+                print("--------------------------")
+                print("le nouveau score du joueur est", joueur.score)
+                while joueur.score < 21:
+                    choix_carte_supp = input("le joueur veut continuer ?:")
+                    croupier.distribue(1, joueur)
+                    joueur.calcul_hand()
+                    print("la nouvelle main du joueur est :", joueur.hand)
+                    print("--------------------------")
+                    print("le nouveau score du joueur est :", joueur.score)
+            elif choix_carte_supp == "non":
+                print("on tire les mains du croupier pour comparer :")
+                croupier.distribue(1)
+                print("la main du croupier est :", croupier.joueur.hand)
+                croupier.joueur.calcul_hand()
+                print("le score du croupier est :", croupier.joueur.score)
+            choix_recommencer = input("le joueur veut rejouer ?:")
+    print("Merci et à bientôt")
+                # comparaison des mains..
+               
+        #choix_carte_supp = choix_carte_supp[0].lower()
 
 
-    #si arret
-    #print(croupier.joueur.score)
+
+        #print(croupier.joueur.score)
