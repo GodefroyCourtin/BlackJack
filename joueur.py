@@ -19,7 +19,7 @@ class Joueur:
                 self.score += int(choix)
             elif  card[0] == 'as' and name == "croupier":
                 if self.score <= 10:
-                    self.score += 10
+                    self.score += 11
                 else:
                     self.score += 1
             else :

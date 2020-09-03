@@ -80,24 +80,41 @@ if __name__ == "__main__":
                 print("--------------------------")  
                 print("le score du croupier est de :", croupier.joueur.score)
                 print("--------------------------")  
-                
-            while croupier.joueur.score != joueur.score:
+          
 
-                if croupier.joueur.score <= 21:
+            while 17 <= croupier.joueur.score <= 21:
+                var = {croupier.joueur.score: "le croupier", joueur.score:"le joueur"}
+                croupier.distribue(1)
+                print("la main du croupier est :", croupier.joueur.hand)
+                print("le score du croupier est :", croupier.joueur.score)
+                print("{} remporte la partie, avec un score de {}".format(var.get(max(var)),max(var)))
+                print("--------------------------")
+                break
+
+            
+            while croupier.joueur.score > 21:
+                print("le score du croupier est de :", croupier.joueur.score)
+                print("le joueur remporte la partie")
+                break
+            # while croupier.joueur.score != joueur.score:
+
+            #     if croupier.joueur.score <= 21:
                     
-                    var = {croupier.joueur.score: "le croupier", joueur.score:"le joueur"}
-                    print("{} remporte la partie, avec un score de {}".format(var.get(max(var)),max(var)))
-                    print("--------------------------")
-                    choix_recommencer = input("voulez vous rejouer ?:")
+            #         var = {croupier.joueur.score: "le croupier", joueur.score:"le joueur"}
+            #         print("{} remporte la partie, avec un score de {}".format(var.get(max(var)),max(var)))
+            #         print("--------------------------")
+            
+            #     break
 
-                else:
-                    var = {croupier.joueur.score: "le croupier", joueur.score:"le joueur"}
-                    print("{} remporte la partie, avec un score de {}".format(var.get(min(var)),min(var)))
-                    print("--------------------------")
-                    choix_recommencer = input("voulez vous rejouer ?:")
+            # else:
+            #     var = {croupier.joueur.score: "le croupier", joueur.score:"le joueur"}
+            #     print("{} remporte la partie, avec un score de {}".format(var.get(min(var)),min(var)))
+            #     print("--------------------------")
+            
 
-            print("égalité")
-            choix_recommencer = input("voulez vous rejouer ?:")
+            # print("égalité")
+            # choix_recommencer = input("voulez vous rejouer ?:")
+
         while choix_carte_supp == "oui":
 
             croupier.distribue(1, joueur)
@@ -127,24 +144,49 @@ if __name__ == "__main__":
                         print("la main du croupier est :", croupier.joueur.hand)
                         print("--------------------------")  
                         print("le score du croupier est de :", croupier.joueur.score)
-                        print("--------------------------")  
+                        print("--------------------------") 
+
+                    while croupier.joueur.score <= 21:
+                            var = {croupier.joueur.score: "le croupier", joueur.score:"le joueur"}
+                            croupier.distribue(1)
+                            print(croupier.joueur.score)
+                            print(croupier.joueur.hand)
+                            print("{} remporte la partie, avec un score de {}".format(var.get(max(var)),max(var)))
+                            print("--------------------------")
+                            break
+
+                    while croupier.joueur.score != joueur.score:
+
                         
-                    
-                    if croupier.joueur.score <= 21:
-                        var = {croupier.joueur.score: "le croupier", joueur.score:"le joueur"}
-                        print("{} remporte la partie, avec un score de {}".format(var.get(max(var)),max(var)))
-                        print("--------------------------")
-                        choix_recommencer = input("voulez vous rejouer ?:")
+                        if croupier.joueur.score <= 21:
+                            var = {croupier.joueur.score: "le croupier", joueur.score:"le joueur"}
+                            croupier.distribue(1)
+                            print(croupier.joueur.score)
+                            print(croupier.joueur.hand)
+                            print("{} remporte la partie, avec un score de {}".format(var.get(max(var)),max(var)))
+                            print("--------------------------")
+                            break
 
-                    else:
-                        var = {croupier.joueur.score: "le croupier", joueur.score:"le joueur"}
-                        print("{} remporte la partie, avec un score de {}".format(var.get(min(var)),min(var)))
-                        print("--------------------------")
-                        choix_recommencer = input("voulez vous rejouer ?:")
+                        else:
+                            var = {croupier.joueur.score: "le croupier", joueur.score:"le joueur"}
+                            print("{} remporte la partie, avec un score de {}".format(var.get(min(var)),min(var)))
+                            print("--------------------------")
+                            break
+                
+                    print("égalité")
+                    choix_recommencer = input("voulez vous rejouer ?:")  
+                else:
+                    choix_carte_supp =""
+                    while choix_carte_supp != "oui" and choix_carte_supp != "non":
+                        choix_carte_supp = input("Recevoir une nouvelle carte ?:")
+        print("Merci et à bientot")                    
 
-    print("Merci et à bientot")                    
 
-                                
+                
+
+           
+
+                        
 
 
 
