@@ -32,8 +32,8 @@ class Croupier:
 	
 if __name__ == "__main__":
 
-    #choix_recommencer = "oui"
-    #while choix_recommencer == "oui":
+    choix_recommencer = "oui"
+    while choix_recommencer == "oui":
         #Tour1
         joueur = Joueur("beber")                  
         croupier = Croupier() 
@@ -81,11 +81,14 @@ if __name__ == "__main__":
             if croupier.joueur.score <= 21:
                 var = {croupier.joueur.score: "le croupier", joueur.score:"le joueur"}
                 print("{} remporte la partie, avec un score de {}".format(var.get(max(var)),max(var)))
-                print("--------------------------")  
+                print("--------------------------")
+                choix_recommencer = input("voulez vous rejouer ?:")
+
             else:
                 var = {croupier.joueur.score: "le croupier", joueur.score:"le joueur"}
                 print("{} remporte la partie, avec un score de {}".format(var.get(min(var)),min(var)))
-                print("--------------------------")  
+                print("--------------------------")
+                choix_recommencer = input("voulez vous rejouer ?:")
 
         while choix_carte_supp == "oui":
 
@@ -95,6 +98,7 @@ if __name__ == "__main__":
             print("le score du joueur est :", joueur.score)
             if joueur.score > 21:
                 print("tu as perdu")
+                choix_recommencer = input("voulez vous rejouer ?:")
                 break
             else:
                 choix_carte_supp =""
@@ -121,13 +125,16 @@ if __name__ == "__main__":
                     if croupier.joueur.score <= 21:
                         var = {croupier.joueur.score: "le croupier", joueur.score:"le joueur"}
                         print("{} remporte la partie, avec un score de {}".format(var.get(max(var)),max(var)))
-                        print("--------------------------")  
+                        print("--------------------------")
+                        choix_recommencer = input("voulez vous rejouer ?:")
+
                     else:
                         var = {croupier.joueur.score: "le croupier", joueur.score:"le joueur"}
                         print("{} remporte la partie, avec un score de {}".format(var.get(min(var)),min(var)))
                         print("--------------------------")
+                        choix_recommencer = input("voulez vous rejouer ?:")
 
-                        
+    print("Merci et à bientot")                    
 
                                 
 

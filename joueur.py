@@ -17,6 +17,7 @@ class Joueur:
 
                 while choix != "1" and choix != "11" :
                     choix = input("choisir 1 ou 11: ")
+                   # il faut fixer le choix de joueur a la premiere demande; demanderqu'une seul fois et save le choix
 
                 self.score += int(choix)
 
